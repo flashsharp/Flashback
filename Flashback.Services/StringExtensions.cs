@@ -39,7 +39,7 @@ namespace Flashback.Services
         public static string GetCleanIdFirstPage(this String str)
         {
             if (!string.IsNullOrWhiteSpace(str))
-            {                                
+            {
                 str = str.Replace("s", "") + "p1";
 
                 int posP = str.IndexOf("p", StringComparison.Ordinal);
@@ -110,11 +110,11 @@ namespace Flashback.Services
             { 
                 var output = WebUtility.HtmlEncode(str).Replace("&amp;", "&").Replace("&gt;", ">").Replace("&lt;", "<").Replace("&quot;", "\"");
 
-                var destinationEncoding = Encoding.GetEncoding("ISO-8859-1");            
+                var destinationEncoding = Encoding.GetEncoding("ISO-8859-1");
                 var sourceEncoding = Encoding.UTF8;
             
                 var sourceBytes = sourceEncoding.GetBytes(output);
-                var destinationBytes = Encoding.Convert(sourceEncoding, destinationEncoding, sourceBytes);            
+                var destinationBytes = Encoding.Convert(sourceEncoding, destinationEncoding, sourceBytes);
 
                 var encodesBytes = WebUtility.UrlEncodeToBytes(destinationBytes, 0, destinationBytes.Length);
 
